@@ -19,8 +19,10 @@ Java 8: Download and install the JDK from official website.
 
 Node.js : Download and install the latest version of node.
 
-Angular CLI: It is the official way to bootstrap Angular applications. You can install it using your favourite package manager. 
-For npm, you can type npm install -g @angular/cli on your command-line. If you use yarn, you can type yarn global add @angular/cli on your command-line.
+Angular CLI: It is the official way to bootstrap Angular applications. You can install it using your favourite package manager.
+
+    For npm, you can type npm install -g @angular/cli on your command-line.
+    If you use yarn, you can type yarn global add @angular/cli on your command-line.
 
 
 Running the application:
