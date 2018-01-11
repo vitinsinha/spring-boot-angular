@@ -43,6 +43,19 @@
             <version>1.5.0</version>
             <executions>
               <execution>
+                <id>npm install</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <executable>${npm.executable}</executable>
+                  <arguments>
+                    <argument>install</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+              <execution>
                 <id>npm build</id>
                 <phase>generate-sources</phase>
                 <goals>
