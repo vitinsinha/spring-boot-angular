@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.vitz</groupId>
+        <artifactId>spring-boot-angular</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>spring-boot-angular-frontend</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+  <properties>
+    <npm.executable>npm</npm.executable>
+  </properties>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>dist</directory>
+            </resource>
+        </resources>
+        <plugins>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-clean-plugin</artifactId>
+            <version>3.0.0</version>
+            <configuration>
+              <followSymLinks>false</followSymLinks>
+              <filesets>
+                <fileset>
+                  <directory>${basedir}/dist</directory>
+                </fileset>
+              </filesets>
+            </configuration>
+          </plugin>
+
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.5.0</version>
+            <executions>
+              <execution>
+                <id>npm build</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <executable>${npm.executable}</executable>
+                  <arguments>
+                    <argument>run-script</argument>
+                    <argument>build</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+              <execution>
+                <id>npm test</id>
+                <phase>test</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <executable>${npm.executable}</executable>
+                  <arguments>
+                    <argument>test</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+
+        </plugins>
+    </build>
+
+  <profiles>
+    <profile>
+      <id>platform-windows</id>
+      <activation>
+        <os>
+          <family>windows</family>
+        </os>
+      </activation>
+      <properties>
+        <!-- Override the executable names for Windows -->
+        <npm.executable>npm.cmd</npm.executable>
+      </properties>
+    </profile>
+  </profiles>
+
+</project>
