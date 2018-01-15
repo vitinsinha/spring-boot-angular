@@ -3,15 +3,15 @@ Spring Boot Angular
 
 Overview:
 --------
-This is a multi-module Spring Boot Angular 5 starter project. This project is just to spare the developers from project setup. 
+This is a multi-module Spring Boot Angular 5 starter project. This starter project is just to spare the developers from project setup. 
 
 It has two modules -
 1. backend: This contains Spring Boot based backend written in Java.
-2. frontend: This contains Angular 5 based frontend of the application
+2. frontend: This contains Angular 5 based frontend of the application. I have also created a couple of basic routes, 
+just to provide a starter for routes.
 
 This project compiles the frontend module and creates a jar out of it and then uses that jar in the backend module. 
 All of this is managed via maven.
-
 
 Prerequisite:
 ------------
@@ -37,9 +37,16 @@ Step 2. Switch to backend directory and run the Spring Boot app:
 
 	xyz\spring-boot-angular\backend>mvn spring-boot:run
 
+You can now access the application at: http://localhost:8080
 
-Using the application:
----------------------
-1. You can access the application at: http://localhost:8080
+
+Running only frontend module for UI development:
+------------------------------------------------
+Go to 'frontend' directory and run below command:
+
+    ng serve --prod
+
+You can now access the UI application at - http://localhost:4200/
+
 
 
