@@ -44,7 +44,7 @@ Running only frontend module for UI development:
 ------------------------------------------------
 Go to 'frontend' directory and run below command:
 
-    ng serve --prod
+    ng serve
 
 You can now access the UI application at - http://localhost:4200/
 
